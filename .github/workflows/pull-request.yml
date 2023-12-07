@@ -1,0 +1,21 @@
+name: pull-request
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      
+    steps:
+    - uses: actions/checkout@v3
+    - uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: false

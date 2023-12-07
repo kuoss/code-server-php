@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: code-server-php
+spec:
+  selector:
+    matchLabels:
+      app: code-server-php
+  template:
+    metadata:
+      labels:
+        app: code-server-php
+    spec:
+      containers:
+      - name: code-server-php
+        image: ghcr.io/kuoss/code-server-php:4.19.1
+        command: ["/usr/bin/entrypoint.sh", "--bind-addr", "0.0.0.0:8080", "/var/www"]
+        env:
+        - name: PASSWORD
+          value: code-server-php
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

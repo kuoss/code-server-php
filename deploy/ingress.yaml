@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: code-server-php
+spec:
+  rules:
+  - host: code-server-php.example.com
+    http:
+      paths:
+      - pathType: ImplementationSpecific
+        backend:
+          service:
+            name: code-server-php
+            port:
+              number: 8080
+  # tls:
+  # - hosts:
+  #   - code-server-php.example.com
+  #   secretName: example-com-tls
