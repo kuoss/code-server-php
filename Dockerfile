@@ -27,6 +27,7 @@ RUN set -x \
     php8.3-cli   \
     php8.3-curl  \
     php8.3-mysql \
+    php8.3-redis \
     php8.3-xml   \
 && rm -rf /var/lib/apt/lists/* \
 && php -v \
