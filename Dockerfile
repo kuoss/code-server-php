@@ -27,6 +27,7 @@ RUN set -x \
     php8.3-cli   \
     php8.3-curl  \
     php8.3-mysql \
+    php8.3-xml   \
 && rm -rf /var/lib/apt/lists/* \
 && php -v \
 && (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash) \
